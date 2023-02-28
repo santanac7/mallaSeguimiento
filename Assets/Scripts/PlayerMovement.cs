@@ -16,15 +16,12 @@ public class PlayerMovement : MonoBehaviour
     bool jumpActive;
     bool grounded;
 
-
-
     void Start()
     {
         pRb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
-    {
+    void Update() {
         // xMove
         xMove = Input.GetAxisRaw("Horizontal");
         pRb.velocity = new Vector2(xMove * xSpeed, pRb.velocity.y);
@@ -42,12 +39,8 @@ public class PlayerMovement : MonoBehaviour
         if (jumpActive) {
             pRb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             jumpActive = false;
-        }
-        
+        }        
     }
-
-
-
 
     // Gizmo grounded detection
     private void OnDrawGizmos() {
